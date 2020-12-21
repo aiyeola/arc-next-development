@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/61392490-1c8a-4998-ab7a-4c3408dde994/deploy-status)](https://app.netlify.com/sites/arcnextreact/deploys)
+
 # Next.js example
 
 ## How to use

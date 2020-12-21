@@ -1,0 +1,35 @@
+{
+  "name": "nextjs",
+  "version": "4.0.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^4.11.2",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/styles": "^4.11.2",
+    "axios": "^0.21.0",
+    "clsx": "latest",
+    "fontsource-pacifico": "^3.1.5",
+    "fontsource-raleway": "^3.1.6",
+    "fontsource-roboto": "^3.1.5",
+    "fs-extra": "^9.0.1",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-optipng": "^8.0.0",
+    "lodash": "^4.17.20",
+    "next": "latest",
+    "next-compose-plugins": "^2.2.1",
+    "next-optimized-images": "^2.6.2",
+    "prop-types": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-lottie": "^1.2.3"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "netlify:func:build": "netlify functions:build -f=lambda -s=functions",
+    "start:dev": "netlify dev",
+    "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest",
+    "postbuild": "node scripts/sitemap.js"
+  }
+}

@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import MobileAppsPage from '../src/components/Services/MobileApps';
+import MobileAppsPage from '@components/Services/MobileApps';
 
 export default function Index({ setValue, setSelectedIndex }) {
   return (

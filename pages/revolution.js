@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import RevolutionPage from '../src/components/RevolutionPage';
+import RevolutionPage from '@components/RevolutionPage';
 
 export default function Index({ setValue, setSelectedIndex }) {
   return (

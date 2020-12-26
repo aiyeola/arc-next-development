@@ -1,6 +1,7 @@
+// @ts-nocheck
 import React, { useState } from 'react';
 import axios from 'axios';
-import { makeStyles, useTheme } from '@material-ui/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
@@ -11,8 +12,8 @@ import DialogContent from '@material-ui/core/DialogContent';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import SnackBar from '@material-ui/core/Snackbar';
 
-import Link from '../../Link';
-import ButtonArrow from '../../ui/ButtonArrow';
+import Link from 'src/Link';
+import ButtonArrow from '@ui/ButtonArrow';
 
 const useStyles = makeStyles((theme) => ({
   background: {
@@ -27,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   learnButton: {
+    // @ts-ignore
     ...theme.typography.learnButton,
     fontSize: '0.7rem',
     height: 35,
@@ -36,10 +38,12 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   estimateButton: {
+    // @ts-ignore
     ...theme.typography.estimate,
     borderRadius: 50,
     height: 80,
     width: 205,
+    // @ts-ignore
     backgroundColor: theme.palette.common.orange,
     fontSize: '1.5rem',
     marginRight: '5em',
@@ -53,16 +57,19 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   message: {
+    // @ts-ignore
     border: `2px solid ${theme.palette.common.blue}`,
     marginTop: '5em',
     borderRadius: 5,
   },
   sendButton: {
+    // @ts-ignore
     ...theme.typography.estimate,
     borderRadius: 50,
     height: 45,
     width: 245,
     fontSize: '1rem',
+    // @ts-ignore
     backgroundColor: theme.palette.common.orange,
     '&:hover': {
       backgroundColor: theme.palette.secondary.light,
@@ -206,6 +213,7 @@ function Contact({ setValue }) {
               <Typography
                 variant="body1"
                 align={matchesMD ? 'center' : undefined}
+                // @ts-ignore
                 style={{ color: theme.palette.common.blue }}
               >
                 We're waiting
@@ -222,6 +230,7 @@ function Contact({ setValue }) {
               <Grid item>
                 <Typography
                   variant="body1"
+                  // @ts-ignore
                   style={{ color: theme.palette.common.blue, fontSize: '1rem' }}
                 >
                   <a
@@ -244,6 +253,7 @@ function Contact({ setValue }) {
               <Grid item>
                 <Typography
                   variant="body1"
+                  // @ts-ignore
                   style={{ color: theme.palette.common.blue, fontSize: '1rem' }}
                 >
                   <a
@@ -505,6 +515,7 @@ function Contact({ setValue }) {
                   <ButtonArrow
                     width={10}
                     height={10}
+                    // @ts-ignore
                     fill={theme.palette.common.blue}
                   />
                 </Button>

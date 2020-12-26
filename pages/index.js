@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import LandingPage from '../src/components/LandingPage';
+import LandingPage from '@components/LandingPage';
 
 export default function Index({ setValue, setSelectedIndex }) {
   return (

@@ -1,11 +1,13 @@
+// @ts-nocheck
 import React from 'react';
 import Link from '../Link';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
 
 const useStyles = makeStyles((theme) => ({
   footer: {
+    // @ts-ignore
     backgroundColor: theme.palette.common.blue,
     width: '100%',
     zIndex: 1302,
@@ -60,7 +62,12 @@ const Footer = ({ setValue, setSelectedIndex }) => {
       <Hidden mdDown>
         <Grid container justify="center" className={classes.mainContainer}>
           <Grid item className={classes.gridItem}>
-            <Grid container direction="column" spacing={2}>
+            <Grid
+              container
+              direction="column"
+              spacing={2}
+              style={{ margin: 0 }}
+            >
               <Grid
                 item
                 component={Link}
@@ -74,7 +81,12 @@ const Footer = ({ setValue, setSelectedIndex }) => {
           </Grid>
 
           <Grid item className={classes.gridItem}>
-            <Grid container direction="column" spacing={2}>
+            <Grid
+              container
+              direction="column"
+              spacing={2}
+              style={{ margin: 0 }}
+            >
               <Grid
                 item
                 component={Link}
@@ -127,7 +139,12 @@ const Footer = ({ setValue, setSelectedIndex }) => {
           </Grid>
 
           <Grid item className={classes.gridItem}>
-            <Grid container direction="column" spacing={2}>
+            <Grid
+              container
+              direction="column"
+              spacing={2}
+              style={{ margin: 0 }}
+            >
               <Grid
                 item
                 component={Link}
@@ -168,7 +185,12 @@ const Footer = ({ setValue, setSelectedIndex }) => {
           </Grid>
 
           <Grid item className={classes.gridItem}>
-            <Grid container direction="column" spacing={2}>
+            <Grid
+              container
+              direction="column"
+              spacing={2}
+              style={{ margin: 0 }}
+            >
               <Grid
                 item
                 component={Link}
@@ -200,7 +222,12 @@ const Footer = ({ setValue, setSelectedIndex }) => {
           </Grid>
 
           <Grid item className={classes.gridItem}>
-            <Grid container direction="column" spacing={2}>
+            <Grid
+              container
+              direction="column"
+              spacing={2}
+              style={{ margin: 0 }}
+            >
               <Grid
                 item
                 component={Link}

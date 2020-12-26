@@ -1,13 +1,14 @@
+// @ts-nocheck
 import React from 'react';
 import Lottie from 'react-lottie';
-import { makeStyles, useTheme } from '@material-ui/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-import Link from '../../Link';
-import ButtonArrow from '../../ui/ButtonArrow';
-import animationData from '../../animations/landinganimation/data';
+import Link from 'src/Link';
+import ButtonArrow from '@ui/ButtonArrow';
+import animationData from '@animations/landinganimation/data';
 
 const useStyles = makeStyles((theme) => ({
   animation: {
@@ -20,7 +21,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   estimateButton: {
+    // @ts-ignore
     ...theme.typography.estimate,
+    // @ts-ignore
     backgroundColor: theme.palette.common.orange,
     borderRadius: 50,
     height: 45,
@@ -34,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '1em',
   },
   learnButtonHero: {
+    // @ts-ignore
     ...theme.typography.learnButton,
     fontSize: '0.9rem',
     height: 45,
@@ -94,6 +98,7 @@ function HeroBlock({ setValue }) {
                 <ButtonArrow
                   width={15}
                   height={15}
+                  // @ts-ignore
                   fill={theme.palette.common.blue}
                 />
               </Button>

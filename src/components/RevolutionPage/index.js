@@ -1,12 +1,12 @@
 import React from 'react';
 import Lottie from 'react-lottie';
-import { makeStyles, useTheme } from '@material-ui/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
-import technologyAnimation from '../../animations/technologyAnimation/data';
-import CallToAction from '../../ui/CallToAction';
+import technologyAnimation from '@animations/technologyAnimation/data.json';
+import CallToAction from '@ui/CallToAction';
 
 const useStyles = makeStyles((theme) => ({
   rowContainer: {
@@ -437,7 +437,7 @@ function Revolution({ setValue }) {
             width="100%"
             src="/assets/reviewIcon.svg"
             alt="magnifying glass"
-            style={{ maxWidth: 1000 }}
+            style={{ maxWidth: "40em" }}
           />
         </Grid>
       </Grid>
@@ -552,7 +552,7 @@ function Revolution({ setValue }) {
             width="100%"
             src="/assets/reviewIcon.svg"
             alt="magnifying glass"
-            style={{ maxWidth: 1000 }}
+            style={{ maxWidth:"40em" }}
           />
         </Grid>
       </Grid>

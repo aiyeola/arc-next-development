@@ -4,9 +4,9 @@ import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-import Header from '../src/ui/Header';
-import Footer from '../src/ui/Footer';
-import theme from '../src/ui/Theme';
+import Header from '@ui/Header';
+import Footer from '@ui/Footer';
+import theme from '@ui/Theme';
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;

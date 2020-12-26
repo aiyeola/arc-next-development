@@ -1,12 +1,12 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 
 import Hero from './HeroBlock';
 import Services from './ServicesBlock';
 import Revolution from './RevolutionBlock';
 import Information from './InformationBlock';
-import CallToAction from '../../ui/CallToAction';
+import CallToAction from '@ui/CallToAction';
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ({ setValue, setSelectedIndex }) {
+export default function LandingPage({ setValue, setSelectedIndex }) {
   const classes = useStyles();
   return (
     <Grid container direction="column" className={classes.mainContainer}>

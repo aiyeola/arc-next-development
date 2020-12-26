@@ -1,15 +1,17 @@
+// @ts-nocheck
 import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import Link from '../Link';
+import Link from 'src/Link';
 
 import ButtonArrow from './ButtonArrow';
 
 const useStyles = makeStyles((theme) => ({
   learnButton: {
+    // @ts-ignore
     ...theme.typography.learnButton,
     fontSize: '0.7rem',
     height: 35,
@@ -32,10 +34,12 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   estimateButton: {
+    // @ts-ignore
     ...theme.typography.estimate,
     borderRadius: 50,
     height: 80,
     width: 205,
+    // @ts-ignore
     backgroundColor: theme.palette.common.orange,
     fontSize: '1.5rem',
     marginRight: '5em',
@@ -98,6 +102,7 @@ const CallToAction = ({ setValue }) => {
                 <ButtonArrow
                   width={10}
                   height={10}
+                  // @ts-ignore
                   fill={theme.palette.common.blue}
                 />
               </Button>

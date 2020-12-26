@@ -10,6 +10,7 @@ const arcGrey = '#868686';
 export default createMuiTheme({
   palette: {
     common: {
+      // @ts-ignore
       blue: arcBlue,
       orange: arcOrange,
     },
@@ -21,6 +22,7 @@ export default createMuiTheme({
     },
   },
   typography: {
+    // @ts-ignore
     tab: {
       fontFamily: 'Raleway',
       textTransform: 'none',

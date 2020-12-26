@@ -1,15 +1,16 @@
+// @ts-nocheck
 import React from 'react';
 import Lottie from 'react-lottie';
-import { makeStyles, useTheme } from '@material-ui/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Hidden from '@material-ui/core/Hidden';
 
-import integrationAnimation from '../../animations/integrationAnimation/data';
-import CallToAction from '../../ui/CallToAction';
-import Link from '../../Link';
+import integrationAnimation from '@animations/integrationAnimation/data.json';
+import CallToAction from '@ui/CallToAction';
+import Link from 'src/Link';
 
 const useStyles = makeStyles((theme) => ({
   heading: {
@@ -161,7 +162,13 @@ function MobileApps({ setValue, setSelectedIndex }) {
         </Grid>
 
         <Grid item md>
-          <Lottie options={defaultOptions} style={{ maxWidth: '20em' }} />
+          <Lottie
+            options={defaultOptions}
+            style={{
+              maxWidth: matchesMD ? '15em' : '20em',
+              height: matchesMD ? '20em' : undefined,
+            }}
+          />
         </Grid>
 
         <Grid item container direction="column" md>
@@ -200,7 +207,10 @@ function MobileApps({ setValue, setSelectedIndex }) {
         container
         direction={matchesMD ? 'column' : 'row'}
         className={classes.rowContainer}
-        style={{ marginBottom: '15em' }}
+        style={{
+          marginBottom: '15em',
+          display: matchesMD ? 'grid' : undefined,
+        }}
       >
         <Grid item container direction="column" md alignItems="center">
           <Grid item>

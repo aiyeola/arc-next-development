@@ -1,13 +1,14 @@
+// @ts-nocheck
 import React from 'react';
 import Link from '../../Link';
-import { makeStyles, useTheme } from '@material-ui/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Hidden from '@material-ui/core/Hidden';
 
-import CallToAction from '../../ui/CallToAction';
+import CallToAction from '@ui/CallToAction';
 
 const useStyles = makeStyles((theme) => ({
   heading: {

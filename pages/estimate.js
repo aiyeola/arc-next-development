@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import EstimatePage from '../src/components/EstimatePage';
+import EstimatePage from '@components/EstimatePage';
 
 export default function Index({ setValue, setSelectedIndex }) {
   return (

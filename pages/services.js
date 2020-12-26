@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import ServicesPage from '../src/components/Services';
+import ServicesPage from '@components/Services';
 
 export default function Index({ setValue, setSelectedIndex }) {
   return (

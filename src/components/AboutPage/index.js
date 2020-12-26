@@ -1,12 +1,12 @@
 import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Hidden from '@material-ui/core/Hidden';
 
-import CallToAction from '../../ui/CallToAction';
+import CallToAction from '@ui/CallToAction';
 
 const useStyles = makeStyles((theme) => ({
   missionStatement: {

@@ -1,16 +1,18 @@
+// @ts-nocheck
 import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
-import Link from '../../Link';
-import ButtonArrow from '../../ui/ButtonArrow';
+import Link from 'src/Link';
+import ButtonArrow from '@ui/ButtonArrow';
 
 const useStyles = makeStyles((theme) => ({
   learnButton: {
+    // @ts-ignore
     ...theme.typography.learnButton,
     fontSize: '0.7rem',
     height: 35,
@@ -81,6 +83,7 @@ function RevolutionBlock({ setValue }) {
                     <ButtonArrow
                       width={15}
                       height={15}
+                      // @ts-ignore
                       fill={theme.palette.common.blue}
                     />
                   </Button>

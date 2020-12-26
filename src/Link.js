@@ -7,6 +7,7 @@ import NextLink from 'next/link';
 import MuiLink from '@material-ui/core/Link';
 
 const NextComposed = React.forwardRef(function NextComposed(props, ref) {
+  // @ts-ignore
   const { as, href, ...other } = props;
 
   return (
@@ -17,6 +18,7 @@ const NextComposed = React.forwardRef(function NextComposed(props, ref) {
 });
 
 NextComposed.propTypes = {
+  // @ts-ignore
   as: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   href: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   prefetch: PropTypes.bool,

@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import ContactPage from '../src/components/ContactPage';
+import ContactPage from '@components/ContactPage';
 
 export default function Index({ setValue, setSelectedIndex }) {
   return (

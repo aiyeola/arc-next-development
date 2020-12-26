@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import CustomSoftwarePage from '../src/components/Services/CustomSoftware';
+import CustomSoftwarePage from '@components/Services/CustomSoftware';
 
 export default function Index({ setValue, setSelectedIndex }) {
   return (

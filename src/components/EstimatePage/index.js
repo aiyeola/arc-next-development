@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { cloneDeep } from 'lodash';
 import Lottie from 'react-lottie';
-import { makeStyles, useTheme } from '@material-ui/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Typography from '@material-ui/core/Typography';
@@ -15,7 +15,7 @@ import Hidden from '@material-ui/core/Hidden';
 import SnackBar from '@material-ui/core/Snackbar';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-import estimateAnimation from '../../animations/estimateAnimation/data.json';
+import estimateAnimation from '@animations/estimateAnimation/data.json';
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -23,7 +23,9 @@ const useStyles = makeStyles((theme) => ({
     height: '10em',
   },
   estimateButton: {
+    // @ts-ignore
     ...theme.typography.estimate,
+    // @ts-ignore
     backgroundColor: theme.palette.common.orange,
     borderRadius: 50,
     height: 50,
@@ -35,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   message: {
+    // @ts-ignore
     border: `2px solid ${theme.palette.common.blue}`,
     marginTop: '3em',
     marginBottom: '2em',
@@ -45,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Raleway',
     fontWeight: 700,
     fontSize: '1.5rem',
+    // @ts-ignore
     color: theme.palette.common.orange,
   },
 }));
@@ -421,6 +425,7 @@ export default function Estimate() {
     switch (newSelected.title) {
       case 'Custom Software Development':
         setQuestions(softwareQuestions);
+        // @ts-ignore
         setService(newSelected.title);
         setPlatforms([]);
         setFeatures([]);
@@ -430,6 +435,7 @@ export default function Estimate() {
         break;
       case 'iOS/Android App Development':
         setQuestions(softwareQuestions);
+        // @ts-ignore
         setService(newSelected.title);
         setPlatforms([]);
         setFeatures([]);
@@ -439,6 +445,7 @@ export default function Estimate() {
         break;
       case 'Website Development':
         setQuestions(websiteQuestions);
+        // @ts-ignore
         setService(newSelected.title);
         setPlatforms([]);
         setFeatures([]);
@@ -713,6 +720,7 @@ export default function Estimate() {
                 : //otherwise, if there are three or more features...
                   features
                     //filter out the very last feature...
+                    // @ts-ignore
                     .filter((feature, index) => index !== features.length - 1)
                     //and for those features return their name...
                     .map((feature, index) => (
@@ -837,6 +845,7 @@ export default function Estimate() {
                       textTransform: 'none',
                       borderRadius: 0,
                       backgroundColor: option.selected
+                        // @ts-ignore
                         ? theme.palette.common.orange
                         : null,
                       marginBottom: matchesSM ? '1.5em' : 0,

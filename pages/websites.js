@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import WebsitesPage from '../src/components/Services/Websites';
+import WebsitesPage from '@components/Services/Websites';
 
 export default function Index({ setValue, setSelectedIndex }) {
   return (

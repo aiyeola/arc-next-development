@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import AboutPage from '../src/components/AboutPage';
+import AboutPage from '@components/AboutPage';
 
 export default function Index({ setValue, setSelectedIndex }) {
   return (

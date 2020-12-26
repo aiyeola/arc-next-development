@@ -1,12 +1,13 @@
+// @ts-nocheck
 import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
-import Link from '../../Link';
-import ButtonArrow from '../../ui/ButtonArrow';
+import Link from 'src/Link';
+import ButtonArrow from '@ui/ButtonArrow';
 
 const useStyles = makeStyles((theme) => ({
   infoBackground: {
@@ -21,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   learnButton: {
+    // @ts-ignore
     ...theme.typography.learnButton,
     fontSize: '0.7rem',
     height: 35,
@@ -60,7 +62,7 @@ function InformationBlock({ setValue }) {
         >
           <Grid
             container
-            style={{ marginBotton: matchesXS ? '10em' : 0 }}
+            style={{ marginBottom: matchesXS ? '10em' : 0 }}
             direction="column"
           >
             <Typography variant="h1" style={{ color: 'white' }}>

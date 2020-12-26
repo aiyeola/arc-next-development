@@ -1,18 +1,19 @@
+// @ts-nocheck
 import React from 'react';
 import Lottie from 'react-lottie';
-import { makeStyles, useTheme } from '@material-ui/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Hidden from '@material-ui/core/Hidden';
 
-import documentsAnimation from '../../animations/documentsAnimation/data';
-import scaleAnimation from '../../animations/scaleAnimation/data.json';
-import automationAnimation from '../../animations/automationAnimation/data.json';
-import uxAnimation from '../../animations/uxAnimation/data';
-import CallToAction from '../../ui/CallToAction';
-import Link from '../../Link';
+import documentsAnimation from '@animations/documentsAnimation/data';
+import scaleAnimation from '@animations/scaleAnimation/data.json';
+import automationAnimation from '@animations/automationAnimation/data.json';
+import uxAnimation from '@animations/uxAnimation/data';
+import CallToAction from '@ui/CallToAction';
+import Link from 'src/Link';
 
 const useStyles = makeStyles((theme) => ({
   heading: {
@@ -229,8 +230,9 @@ function CustomSoftware({ setValue, setSelectedIndex }) {
         container
         alignItems={matchesMD ? 'center' : undefined}
         direction={matchesMD ? 'column' : 'row'}
-        justify="space-between"
+        justify={matchesMD ? 'center' : 'space-between'}
         className={classes.rowContainer}
+        style={{ display: matchesMD ? 'grid' : undefined }}
       >
         <Grid
           item
@@ -352,8 +354,11 @@ function CustomSoftware({ setValue, setSelectedIndex }) {
         container
         alignItems={matchesMD ? 'center' : undefined}
         direction={matchesMD ? 'column' : 'row'}
-        justify="space-between"
-        style={{ marginBottom: '20em' }}
+        justify={matchesMD ? 'center' : 'space-between'}
+        style={{
+          marginBottom: '20em',
+          display: matchesMD ? 'grid' : undefined,
+        }}
         className={classes.rowContainer}
       >
         <Grid

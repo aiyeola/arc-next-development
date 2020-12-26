@@ -15,7 +15,7 @@ let mailOptions = {
   from: 'Arc Development',
 };
 
-exports.handler = async (event) => {
+export default async function handler(event) {
   const {
     name,
     email,
@@ -1253,4 +1253,4 @@ exports.handler = async (event) => {
       };
     }
   }
-};
+}

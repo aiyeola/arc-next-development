@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 import AboutPage from '@components/AboutPage';
 
-export default function Index({ setValue, setSelectedIndex }) {
+export default function Index({ setValue }) {
   return (
     <>
       <Head>
@@ -21,7 +21,7 @@ export default function Index({ setValue, setSelectedIndex }) {
         />
         <meta property="og:url" key="og:url" content="" />
       </Head>
-      <AboutPage setValue={setValue} setSelectedIndex={setSelectedIndex} />;
+      <AboutPage setValue={setValue} />;
     </>
   );
 }

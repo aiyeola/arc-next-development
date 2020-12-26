@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 import ContactPage from '@components/ContactPage';
 
-export default function Index({ setValue, setSelectedIndex }) {
+export default function Index({ setValue }) {
   return (
     <>
       <Head>
@@ -19,7 +19,7 @@ export default function Index({ setValue, setSelectedIndex }) {
           content="Bringing West Coast Technology to the MidWest | Contact Us"
         />
       </Head>
-      <ContactPage setValue={setValue} setSelectedIndex={setSelectedIndex} />
+      <ContactPage setValue={setValue} />
     </>
   );
 }

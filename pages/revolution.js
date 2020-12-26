@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 import RevolutionPage from '@components/RevolutionPage';
 
-export default function Index({ setValue, setSelectedIndex }) {
+export default function Index({ setValue }) {
   return (
     <>
       <Head>
@@ -20,7 +20,7 @@ export default function Index({ setValue, setSelectedIndex }) {
           content="Bringing West Coast Technology to the MidWest | The Revolution"
         />
       </Head>
-      <RevolutionPage setValue={setValue} setSelectedIndex={setSelectedIndex} />
+      <RevolutionPage setValue={setValue} />
     </>
   );
 }

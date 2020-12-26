@@ -12,5 +12,6 @@
       "@animations/*": ["src/animations/*"]
     }
   },
+  "include": ["**/*.js", "**/*.jsx"],
   "exclude": ["node_modules"]
 }

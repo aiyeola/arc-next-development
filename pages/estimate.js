@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 import EstimatePage from '@components/EstimatePage';
 
-export default function Index({ setValue, setSelectedIndex }) {
+export default function Index() {
   return (
     <>
       <Head>
@@ -21,7 +21,7 @@ export default function Index({ setValue, setSelectedIndex }) {
           content="Bringing West Coast Technology to the MidWest | Free Estimate"
         />
       </Head>
-      <EstimatePage setValue={setValue} setSelectedIndex={setSelectedIndex} />
+      <EstimatePage />
     </>
   );
 }

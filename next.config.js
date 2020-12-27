@@ -11,3 +11,4 @@ module.exports = withPlugins([
 
   // your other plugins here
 ]);
+// target: "serverless",

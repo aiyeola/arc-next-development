@@ -27,12 +27,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start -p $PORT",
-    "netlify:func:build": "netlify functions:build -f=lambda -s=functions",
-    "start:dev": "netlify dev",
-    "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest",
     "postbuild": "node scripts/sitemap.js"
   },
-  "devDependencies": {
-    "@netlify/plugin-nextjs": "^1.0.3"
-  }
+  "devDependencies": {}
 }

@@ -591,7 +591,7 @@ export default function Estimate() {
   const sendEstimate = async () => {
     setLoading(true);
     try {
-      const res = await axios.get('.netlify/functions/sendMail', {
+      const res = await axios.get('api/sendMail', {
         params: {
           name,
           email,

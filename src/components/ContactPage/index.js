@@ -145,7 +145,7 @@ function Contact({ setValue }) {
   const onConfirm = async () => {
     setLoading(true);
     try {
-      await axios.get('.netlify/functions/sendMail', {
+      await axios.get('api/sendMail', {
         params: {
           name,
           email,

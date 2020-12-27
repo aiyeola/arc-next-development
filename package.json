@@ -25,8 +25,8 @@
   },
   "scripts": {
     "dev": "next",
-    "build": "next build && next export",
-    "start": "next start",
+    "build": "next build",
+    "start": "next start -p $PORT",
     "netlify:func:build": "netlify functions:build -f=lambda -s=functions",
     "start:dev": "netlify dev",
     "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest",

@@ -5,6 +5,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import ReactGA from 'react-ga';
 
 import Link from 'src/Link';
 import ButtonArrow from '@ui/ButtonArrow';
@@ -81,7 +82,13 @@ function HeroBlock({ setValue }) {
                 href="/estimate"
                 variant="contained"
                 className={classes.estimateButton}
-                onClick={() => setValue(false)}
+                onClick={() => {
+                  setValue(false);
+                  ReactGA.event({
+                    category: 'Estimate',
+                    action: 'Home Page Pressed',
+                  });
+                }}
               >
                 Free Estimate
               </Button>

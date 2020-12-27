@@ -18,6 +18,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Hidden from '@material-ui/core/Hidden';
+import ReactGA from 'react-ga';
 
 import Link from 'src/Link';
 
@@ -247,7 +248,13 @@ function Header({ value, setValue, selectedIndex, setSelectedIndex }) {
         variant="contained"
         color="secondary"
         className={classes.button}
-        onClick={() => setValue(false)}
+        onClick={() => {
+          setValue(false);
+          ReactGA.event({
+            category: 'Estimate',
+            action: 'Desktop Header Pressed',
+          });
+        }}
       >
         Free estimate
       </Button>
@@ -320,6 +327,10 @@ function Header({ value, setValue, selectedIndex, setSelectedIndex }) {
             onClick={() => {
               setOpenDrawer(false);
               setValue(false);
+              ReactGA.event({
+                category: 'Estimate',
+                action: 'Mobile Header Pressed',
+              });
             }}
             button
             divider

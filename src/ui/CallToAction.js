@@ -5,8 +5,9 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import Link from 'src/Link';
+import ReactGA from 'react-ga';
 
+import Link from 'src/Link';
 import ButtonArrow from './ButtonArrow';
 
 const useStyles = makeStyles((theme) => ({
@@ -116,7 +117,13 @@ const CallToAction = ({ setValue }) => {
           href="/estimate"
           variant="contained"
           className={classes.estimateButton}
-          onClick={() => setValue(false)}
+          onClick={() => {
+            setValue(false);
+            ReactGA.event({
+              category: 'Estimate',
+              action: 'Call to Action Pressed',
+            });
+          }}
         >
           Free estimate
         </Button>

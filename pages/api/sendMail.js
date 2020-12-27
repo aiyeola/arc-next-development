@@ -15,7 +15,7 @@ let mailOptions = {
   from: 'Arc Development',
 };
 
-export default async function handler(event) {
+export default async function handler(req, res) {
   const {
     name,
     email,
@@ -28,7 +28,7 @@ export default async function handler(event) {
     customFeatures,
     users,
     category,
-  } = event.queryStringParameters;
+  } = req.query
 
   const headers = {
     'Access-Control-Allow-Origin': '*',

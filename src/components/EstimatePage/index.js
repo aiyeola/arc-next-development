@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ReactGA from 'react-ga';
 import axios from 'axios';
 import { cloneDeep } from 'lodash';
 import Lottie from 'react-lottie';
@@ -63,7 +64,7 @@ const defaultQuestions = [
         id: 1,
         title: 'Custom Software Development',
         subtitle: null,
-        icon: "/assets/software.svg",
+        icon: '/assets/software.svg',
         iconAlt: 'three floating screens',
         selected: false,
         cost: 0,
@@ -72,7 +73,7 @@ const defaultQuestions = [
         id: 2,
         title: 'iOS/Android App Development',
         subtitle: null,
-        icon: "/assets/mobile.svg",
+        icon: '/assets/mobile.svg',
         iconAlt: 'phone and tablet outline',
         selected: false,
         cost: 0,
@@ -81,7 +82,7 @@ const defaultQuestions = [
         id: 3,
         title: 'Website Development',
         subtitle: null,
-        icon: "/assets/website.svg",
+        icon: '/assets/website.svg',
         iconAlt: 'computer outline',
         selected: false,
         cost: 0,
@@ -102,7 +103,7 @@ const softwareQuestions = [
         id: 1,
         title: 'Web Application',
         subtitle: null,
-        icon: "/assets/website.svg",
+        icon: '/assets/website.svg',
         iconAlt: 'computer outline',
         selected: false,
         cost: 100,
@@ -111,7 +112,7 @@ const softwareQuestions = [
         id: 2,
         title: 'iOS Application',
         subtitle: null,
-        icon: "/assets/iphone.svg",
+        icon: '/assets/iphone.svg',
         iconAlt: 'outline of iphone',
         selected: false,
         cost: 100,
@@ -120,7 +121,7 @@ const softwareQuestions = [
         id: 3,
         title: 'Android Application',
         subtitle: null,
-        icon: "/assets/android.svg",
+        icon: '/assets/android.svg',
         iconAlt: 'outlines of android phone',
         selected: false,
         cost: 100,
@@ -137,7 +138,7 @@ const softwareQuestions = [
         id: 1,
         title: 'Photo/Video',
         subtitle: null,
-        icon: "/assets/camera.svg",
+        icon: '/assets/camera.svg',
         iconAlt: 'camera outline',
         selected: false,
         cost: 25,
@@ -146,7 +147,7 @@ const softwareQuestions = [
         id: 2,
         title: 'GPS',
         subtitle: null,
-        icon: "/assets/gps.svg",
+        icon: '/assets/gps.svg',
         iconAlt: 'gps pin',
         selected: false,
         cost: 25,
@@ -155,7 +156,7 @@ const softwareQuestions = [
         id: 3,
         title: 'File Transfer',
         subtitle: null,
-        icon: "/assets/upload.svg",
+        icon: '/assets/upload.svg',
         iconAlt: 'outline of cloud with arrow pointing up',
         selected: false,
         cost: 25,
@@ -172,7 +173,7 @@ const softwareQuestions = [
         id: 1,
         title: 'Users/Authentication',
         subtitle: null,
-        icon: "/assets/users.svg",
+        icon: '/assets/users.svg',
         iconAlt: 'outline of a person with a plus sign',
         selected: false,
         cost: 25,
@@ -181,7 +182,7 @@ const softwareQuestions = [
         id: 2,
         title: 'Biometrics',
         subtitle: null,
-        icon: "/assets/biometrics.svg",
+        icon: '/assets/biometrics.svg',
         iconAlt: 'fingerprint',
         selected: false,
         cost: 25,
@@ -190,7 +191,7 @@ const softwareQuestions = [
         id: 3,
         title: 'Push Notifications',
         subtitle: null,
-        icon: "/assets/bell.svg",
+        icon: '/assets/bell.svg',
         iconAlt: 'outline of a bell',
         selected: false,
         cost: 25,
@@ -207,7 +208,7 @@ const softwareQuestions = [
         id: 1,
         title: 'Low Complexity',
         subtitle: '(Informational)',
-        icon: "/assets/info.svg",
+        icon: '/assets/info.svg',
         iconAlt: "'i' inside a circle",
         selected: false,
         cost: 25,
@@ -216,7 +217,7 @@ const softwareQuestions = [
         id: 2,
         title: 'Medium Complexity',
         subtitle: '(Interactive, Customizable, Realtime)',
-        icon: "/assets/customized.svg",
+        icon: '/assets/customized.svg',
         iconAlt: 'two toggle switches',
         selected: false,
         cost: 50,
@@ -225,7 +226,7 @@ const softwareQuestions = [
         id: 3,
         title: 'High Complexity',
         subtitle: '(Data Modeling and Computation)',
-        icon: "/assets/data.svg",
+        icon: '/assets/data.svg',
         iconAlt: 'outline of line graph',
         selected: false,
         cost: 100,
@@ -242,7 +243,7 @@ const softwareQuestions = [
         id: 1,
         title: '0-10',
         subtitle: null,
-        icon: "/assets/person.svg",
+        icon: '/assets/person.svg',
         iconAlt: 'person outline',
         selected: false,
         cost: 1,
@@ -251,7 +252,7 @@ const softwareQuestions = [
         id: 2,
         title: '10-100',
         subtitle: null,
-        icon: "/assets/persons.svg",
+        icon: '/assets/persons.svg',
         iconAlt: 'outline of two people',
         selected: false,
         cost: 1.25,
@@ -260,7 +261,7 @@ const softwareQuestions = [
         id: 3,
         title: '100+',
         subtitle: null,
-        icon: "/assets/people.svg",
+        icon: '/assets/people.svg',
         iconAlt: 'outline of three people',
         selected: false,
         cost: 1.5,
@@ -281,7 +282,7 @@ const websiteQuestions = [
         id: 1,
         title: 'Basic',
         subtitle: '(Informational)',
-        icon: "/assets/info.svg",
+        icon: '/assets/info.svg',
         iconAlt: 'person outline',
         selected: false,
         cost: 100,
@@ -290,7 +291,7 @@ const websiteQuestions = [
         id: 2,
         title: 'Interactive',
         subtitle: "(Users, API's, Messaging)",
-        icon: "/assets/customized.svg",
+        icon: '/assets/customized.svg',
         iconAlt: 'outline of two people',
         selected: false,
         cost: 200,
@@ -299,7 +300,7 @@ const websiteQuestions = [
         id: 3,
         title: 'E-Commerce',
         subtitle: '(Sales)',
-        icon: "/assets/globe.svg",
+        icon: '/assets/globe.svg',
         iconAlt: 'outline of three people',
         selected: false,
         cost: 250,
@@ -590,6 +591,10 @@ export default function Estimate() {
 
   const sendEstimate = async () => {
     setLoading(true);
+    ReactGA.event({
+      category: 'Estimate',
+      action: 'Estimate Sent',
+    });
     try {
       const res = await axios.get('api/sendMail', {
         params: {
@@ -845,8 +850,8 @@ export default function Estimate() {
                       textTransform: 'none',
                       borderRadius: 0,
                       backgroundColor: option.selected
-                        // @ts-ignore
-                        ? theme.palette.common.orange
+                        ? // @ts-ignore
+                          theme.palette.common.orange
                         : null,
                       marginBottom: matchesSM ? '1.5em' : 0,
                     }}
@@ -890,7 +895,9 @@ export default function Estimate() {
             >
               <img
                 src={
-                  navigationPreviousDisabled() ? "/assets/backArrowDisabled.svg" : "/assets/backArrow.svg"
+                  navigationPreviousDisabled()
+                    ? '/assets/backArrowDisabled.svg'
+                    : '/assets/backArrow.svg'
                 }
                 alt="Previous question"
               />
@@ -903,7 +910,9 @@ export default function Estimate() {
             >
               <img
                 src={
-                  navigationNextDisabled() ?"/assets/forwardArrowDisabled.svg" : "/assets/forwardArrow.svg"
+                  navigationNextDisabled()
+                    ? '/assets/forwardArrowDisabled.svg'
+                    : '/assets/forwardArrow.svg'
                 }
                 alt="Next question"
               />
@@ -921,6 +930,10 @@ export default function Estimate() {
                 getFeatures();
                 getCustomFeatures();
                 getCategory();
+                ReactGA.event({
+                  category: 'Estimate',
+                  action: 'Estimate Checked',
+                });
               }}
             >
               Get Estimate

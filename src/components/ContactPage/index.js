@@ -11,6 +11,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import SnackBar from '@material-ui/core/Snackbar';
+import ReactGA from 'react-ga';
 
 import Link from 'src/Link';
 import ButtonArrow from '@ui/ButtonArrow';
@@ -144,6 +145,10 @@ function Contact({ setValue }) {
 
   const onConfirm = async () => {
     setLoading(true);
+    ReactGA.event({
+      category: 'Message',
+      action: 'Sent Message',
+    });
     try {
       await axios.get('api/sendMail', {
         params: {
@@ -529,7 +534,13 @@ function Contact({ setValue }) {
             href="/estimate"
             variant="contained"
             className={classes.estimateButton}
-            onClick={() => setValue(false)}
+            onClick={() => {
+              setValue(false);
+              ReactGA.event({
+                category: 'Estimate',
+                action: 'Contact Page Pressed',
+              });
+            }}
           >
             Free estimate
           </Button>

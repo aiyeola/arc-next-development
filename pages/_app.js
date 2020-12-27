@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import ReactGA from 'react-ga';
 
 import Header from '@ui/Header';
 import Footer from '@ui/Footer';
 import theme from '@ui/Theme';
 
+ReactGA.initialize('G-8YGFDEVYGV');
+// ReactGA.pageview(window.location.pathname + window.location.search);
 export default function MyApp(props) {
   const { Component, pageProps } = props;
   const [selectedIndex, setSelectedIndex] = useState(0);

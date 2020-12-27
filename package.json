@@ -21,6 +21,7 @@
     "prop-types": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "react-ga": "^3.3.0",
     "react-lottie": "^1.2.3"
   },
   "scripts": {
@@ -28,6 +29,5 @@
     "build": "next build",
     "start": "next start -p $PORT",
     "postbuild": "node scripts/sitemap.js"
-  },
-  "devDependencies": {}
+  }
 }

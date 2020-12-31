@@ -104,7 +104,14 @@ function CustomSoftware({ setValue, setSelectedIndex }) {
         </Hidden>
         <Grid item container direction="column" className={classes.heading}>
           <Grid item>
-            <Typography variant="h1" align={matchesMD ? 'center' : undefined}>
+            <Typography
+              variant="h1"
+              align={matchesMD ? 'center' : undefined}
+              style={{
+                lineHeight: matchesXS ? 1.1 : null,
+                marginBottom: matchesXS ? '0.5em' : null,
+              }}
+            >
               Custom Software Development
             </Typography>
           </Grid>
@@ -290,7 +297,7 @@ function CustomSoftware({ setValue, setSelectedIndex }) {
           className={classes.itemContainer}
           md
         >
-          <Grid item md>
+          <Grid item md style={{ marginBottom: matchesSM ? '2em' : null }}>
             <Lottie
               options={scaleOptions}
               style={{ maxHeight: 260, maxWidth: 280 }}
@@ -401,7 +408,7 @@ function CustomSoftware({ setValue, setSelectedIndex }) {
               </Typography>
             </Grid>
           </Grid>
-          <Grid item md>
+          <Grid item md style={{ marginTop: matchesSM ? '2em' : null }}>
             <Lottie
               options={animationOptions}
               style={{ maxHeight: 290, maxWidth: 280 }}
@@ -415,7 +422,7 @@ function CustomSoftware({ setValue, setSelectedIndex }) {
           className={classes.itemContainer}
           md
         >
-          <Grid item md>
+          <Grid item md style={{ marginBottom: matchesSM ? '2em' : null }}>
             <Lottie
               options={uxOptions}
               style={{ maxHeight: 310, maxWidth: 155 }}

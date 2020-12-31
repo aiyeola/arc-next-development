@@ -21,6 +21,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       padding: '0 1.5em',
     },
+    [theme.breakpoints.down('xs')]: {
+      padding: '0 1em',
+    },
   },
   avatar: {
     height: '25em',

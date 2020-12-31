@@ -273,7 +273,7 @@ function Header({ value, setValue, selectedIndex, setSelectedIndex }) {
             key={`${name}${link}`}
             onClick={(e) => {
               handleMenuItemClick(e, index);
-              handleClose();
+              handleClose(e);
               setValue(1);
             }}
             // @ts-ignore

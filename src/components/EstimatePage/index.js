@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import ReactGA from 'react-ga';
 import axios from 'axios';
 import { cloneDeep } from 'lodash';
@@ -316,6 +316,8 @@ export default function Estimate() {
   const matchesSM = useMediaQuery(theme.breakpoints.down('sm'));
   const matchesXS = useMediaQuery(theme.breakpoints.down('xs'));
 
+  const myRef = useRef(null);
+
   const [questions, setQuestions] = useState(defaultQuestions);
   const [dialogOpen, setDialogOpen] = useState(false);
 
@@ -356,6 +358,9 @@ export default function Estimate() {
   };
 
   const nextQuestion = () => {
+    if (matchesSM) {
+      window.scrollTo(0, myRef.current.offsetTop + 75);
+    }
     const newQuestions = cloneDeep(questions);
     const currentlyActive = newQuestions.filter((question) => question.active);
     const activeIndex = currentlyActive[0].id - 1;
@@ -368,6 +373,9 @@ export default function Estimate() {
   };
 
   const previousQuestion = () => {
+    if (matchesSM) {
+      window.scrollTo(0, myRef.current.offsetTop + 75);
+    }
     const newQuestions = cloneDeep(questions);
     const currentlyActive = newQuestions.filter((question) => question.active);
     const activeIndex = currentlyActive[0].id - 1;
@@ -425,6 +433,9 @@ export default function Estimate() {
 
     switch (newSelected.title) {
       case 'Custom Software Development':
+        if (matchesSM) {
+          window.scrollTo(0, myRef.current.offsetTop + 75);
+        }
         setQuestions(softwareQuestions);
         // @ts-ignore
         setService(newSelected.title);
@@ -435,6 +446,9 @@ export default function Estimate() {
         setUsers('');
         break;
       case 'iOS/Android App Development':
+        if (matchesSM) {
+          window.scrollTo(0, myRef.current.offsetTop + 75);
+        }
         setQuestions(softwareQuestions);
         // @ts-ignore
         setService(newSelected.title);
@@ -445,6 +459,9 @@ export default function Estimate() {
         setUsers('');
         break;
       case 'Website Development':
+        if (matchesSM) {
+          window.scrollTo(0, myRef.current.offsetTop + 75);
+        }
         setQuestions(websiteQuestions);
         // @ts-ignore
         setService(newSelected.title);
@@ -635,8 +652,18 @@ export default function Estimate() {
     let disabled = true;
 
     const emptySelections = questions
+      .filter(
+        (question) => question.title !== 'Which features do you expect to use?'
+      )
       .map((question) => question.options.filter((option) => option.selected))
       .filter((question) => question.length === 0);
+
+    const featuresSelected = questions
+      .filter(
+        (question) => question.title === 'Which features do you expect to use?'
+      )
+      .map((question) => question.options.filter((option) => option.selected))
+      .filter((selections) => selections.length > 0);
 
     if (questions.length === 2) {
       if (emptySelections.length === 1) {
@@ -645,10 +672,13 @@ export default function Estimate() {
     } else if (questions.length === 1) {
       disabled = true;
     } else if (
-      emptySelections.length < 3 &&
-      questions[questions.length - 1].options.filter(
-        (option) => option.selected
-      ).length > 0
+      // old Logic
+      // emptySelections.length < 3 &&
+      // questions[questions.length - 1].options.filter(
+      //   (option) => option.selected
+      // ).length > 0
+      emptySelections.length === 1 &&
+      featuresSelected.length > 0
     ) {
       disabled = false;
     }
@@ -812,7 +842,7 @@ export default function Estimate() {
           .filter((question) => question.active)
           .map((question, index) => (
             <React.Fragment key={`${question}-${index}`}>
-              <Grid item>
+              <Grid item ref={myRef}>
                 <Typography
                   variant="h1"
                   align="center"

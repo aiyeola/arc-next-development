@@ -8,7 +8,6 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Button from '@material-ui/core/Button';
-import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
@@ -18,6 +17,11 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Hidden from '@material-ui/core/Hidden';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import Grow from '@material-ui/core/Grow';
+import Paper from '@material-ui/core/Paper';
+import Popper from '@material-ui/core/Popper';
+import MenuList from '@material-ui/core/MenuList';
 import ReactGA from 'react-ga';
 
 import Link from 'src/Link';
@@ -90,6 +94,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.common.blue,
     color: theme.palette.common.white,
     borderRadius: 0,
+    zIndex: 1302,
   },
   menuItem: {
     // @ts-ignore
@@ -161,25 +166,31 @@ function Header({ value, setValue, selectedIndex, setSelectedIndex }) {
     setSelectedIndex(i);
   };
 
+  const handleListKeyDown = (event) => {
+    if (event.key === 'Tab') {
+      event.preventDefault();
+      setOpen(false);
+    }
+  };
+
   const menuOptions = [
-    { name: 'Services', link: '/services', activeIndex: 1, selectedIndex: 0 },
     {
       name: 'Custom Software Development',
       link: '/customsoftware',
       activeIndex: 1,
-      selectedIndex: 1,
+      selectedIndex: 0,
     },
     {
       name: 'iOS/ Android App Development',
       link: '/mobileapps',
       activeIndex: 1,
-      selectedIndex: 2,
+      selectedIndex: 1,
     },
     {
       name: 'Website Development',
       link: '/websites',
       activeIndex: 1,
-      selectedIndex: 3,
+      selectedIndex: 2,
     },
   ];
 
@@ -239,6 +250,7 @@ function Header({ value, setValue, selectedIndex, setSelectedIndex }) {
             aria-owns={route.ariaOwns}
             aria-haspopup={route.ariaPopup}
             onMouseOver={route.mouseOver}
+            onMouseLeave={() => setOpenMenu(false)}
           />
         ))}
       </Tabs>
@@ -258,34 +270,58 @@ function Header({ value, setValue, selectedIndex, setSelectedIndex }) {
       >
         Free estimate
       </Button>
-      <Menu
-        id="simple-menu"
-        anchorEl={anchorEl}
+      <Popper
         open={openMenu}
-        MenuListProps={{ onMouseLeave: handleClose }}
-        classes={{ paper: classes.menu }}
-        elevation={0}
-        style={{ zIndex: 1302 }}
-        keepMounted
+        anchorEl={anchorEl}
+        role={undefined}
+        placement="bottom-start"
+        transition
+        disablePortal
       >
-        {menuOptions.map(({ name, link }, index) => (
-          <MenuItem
-            key={`${name}${link}`}
-            onClick={(e) => {
-              handleMenuItemClick(e, index);
-              handleClose(e);
-              setValue(1);
+        {({ TransitionProps }) => (
+          <Grow
+            {...TransitionProps}
+            style={{
+              transformOrigin: 'top left',
             }}
-            // @ts-ignore
-            component={Link}
-            href={link}
-            classes={{ root: classes.menuItem }}
-            selected={index === selectedIndex && value === 1}
           >
-            {name}
-          </MenuItem>
-        ))}
-      </Menu>
+            <Paper classes={{ root: classes.menu }} elevation={0}>
+              <ClickAwayListener onClickAway={handleClose}>
+                <MenuList
+                  onMouseOver={() => setOpenMenu(true)}
+                  onMouseLeave={handleClose}
+                  autoFocusItem={false}
+                  disablePadding
+                  id="simple-menu"
+                  onKeyDown={handleListKeyDown}
+                >
+                  {menuOptions.map(({ name, link }, index) => (
+                    <MenuItem
+                      key={`${name}${link}`}
+                      onClick={(e) => {
+                        handleMenuItemClick(e, index);
+                        handleClose(e);
+                        setValue(1);
+                      }}
+                      // @ts-ignore
+                      component={Link}
+                      href={link}
+                      classes={{ root: classes.menuItem }}
+                      selected={
+                        index === selectedIndex &&
+                        value === 1 &&
+                        window.location.pathname !== '/services'
+                      }
+                    >
+                      {name}
+                    </MenuItem>
+                  ))}
+                </MenuList>
+              </ClickAwayListener>
+            </Paper>
+          </Grow>
+        )}
+      </Popper>
     </>
   );
 

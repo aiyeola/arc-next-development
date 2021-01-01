@@ -22,6 +22,11 @@ import Grow from '@material-ui/core/Grow';
 import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import MenuList from '@material-ui/core/MenuList';
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import Grid from '@material-ui/core/Grid';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ReactGA from 'react-ga';
 
 import Link from 'src/Link';
@@ -131,10 +136,40 @@ const useStyles = makeStyles((theme) => ({
   drawerItemSelected: {
     opacity: 1,
   },
+  expansion: {
+    backgroundColor: theme.palette.common.blue,
+    borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
+    '&.Mui-expanded': {
+      margin: 0,
+      borderBottom: 0,
+    },
+    '&::before': {
+      backgroundColor: 'rgba(0, 0, 0, 0.12)',
+    },
+  },
+  expansionDetails: {
+    padding: 0,
+    margin: 0,
+    backgroundColor: theme.palette.primary.light,
+  },
+  summaryRoot: {
+    backgroundColor: (props) =>
+      props.value === 1 ? 'rgba(0, 0, 0, 0.14)' : 'inherit',
+    '&.Mui-expanded': {
+      minHeight: 0,
+    },
+  },
+  summary: {
+    margin: 0,
+    '&.Mui-expanded': {
+      margin: 0,
+    },
+  },
 }));
 
 function Header({ value, setValue, selectedIndex, setSelectedIndex }) {
-  const classes = useStyles();
+  const props = { value, setValue, selectedIndex, setSelectedIndex };
+  const classes = useStyles(props);
   const theme = useTheme();
   // @ts-ignore
   const matches = useMediaQuery(theme.breakpoints.down('md'));
@@ -337,28 +372,88 @@ function Header({ value, setValue, selectedIndex, setSelectedIndex }) {
       >
         <div className={classes.toolbarMargin} />
         <List disablePadding>
-          {routes.map((route, index) => (
-            <ListItem
-              key={`${route}${index}`}
-              button
-              divider
-              // @ts-ignore
-              component={Link}
-              href={route.link}
-              selected={value === route.activeIndex}
-              onClick={() => {
-                setOpenDrawer(false);
-                setValue(route.activeIndex);
-              }}
-              className={
-                value === route.activeIndex
-                  ? clsx(classes.drawerItem, classes.drawerItemSelected)
-                  : classes.drawerItem
-              }
-            >
-              <ListItemText disableTypography>{route.name}</ListItemText>
-            </ListItem>
-          ))}
+          {routes.map((route, index) =>
+            route.name === 'Services' ? (
+              <Accordion
+                elevation={0}
+                classes={{ root: classes.expansion }}
+                key={`${route}${index}`}
+              >
+                <AccordionSummary
+                  classes={{
+                    root: classes.summaryRoot,
+                    content: classes.summary,
+                  }}
+                  expandIcon={<ExpandMoreIcon color="secondary" />}
+                >
+                  <Link href={route.link} color="inherit">
+                    <ListItemText
+                      className={classes.drawerItem}
+                      style={{ opacity: value === 1 ? 1 : null }}
+                      onClick={() => {
+                        setOpenDrawer(false);
+                        setValue(route.activeIndex);
+                      }}
+                      disableTypography
+                    >
+                      {route.name}
+                    </ListItemText>
+                  </Link>
+                </AccordionSummary>
+                <AccordionDetails classes={{ root: classes.expansionDetails }}>
+                  <Grid container direction="column">
+                    {menuOptions.map((routeM, index) => (
+                      <Grid item key={`${routeM}_${index}`}>
+                        <ListItem
+                          button
+                          divider
+                          // @ts-ignore
+                          component={Link}
+                          href={routeM.link}
+                          selected={
+                            selectedIndex === routeM.selectedIndex &&
+                            value === 1 &&
+                            window.location.pathname !== '/services'
+                          }
+                          classes={{ selected: classes.drawerItemSelected }}
+                          onClick={() => {
+                            setOpenDrawer(false);
+                            setSelectedIndex(routeM.selectedIndex);
+                          }}
+                          className={classes.drawerItem}
+                        >
+                          <ListItemText disableTypography>
+                            {routeM.name}
+                          </ListItemText>
+                        </ListItem>
+                      </Grid>
+                    ))}
+                  </Grid>
+                </AccordionDetails>
+              </Accordion>
+            ) : (
+              <ListItem
+                key={`${route}${index}`}
+                button
+                divider
+                // @ts-ignore
+                component={Link}
+                href={route.link}
+                selected={value === route.activeIndex}
+                onClick={() => {
+                  setOpenDrawer(false);
+                  setValue(route.activeIndex);
+                }}
+                className={
+                  value === route.activeIndex
+                    ? clsx(classes.drawerItem, classes.drawerItemSelected)
+                    : classes.drawerItem
+                }
+              >
+                <ListItemText disableTypography>{route.name}</ListItemText>
+              </ListItem>
+            )
+          )}
           <ListItem
             onClick={() => {
               setOpenDrawer(false);

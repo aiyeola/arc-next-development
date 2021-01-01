@@ -8,6 +8,7 @@ import ReactGA from 'react-ga';
 import Header from '@ui/Header';
 import Footer from '@ui/Footer';
 import theme from '@ui/Theme';
+import Fonts from '@ui/Fonts';
 
 ReactGA.initialize('G-8YGFDEVYGV');
 // ReactGA.pageview(window.location.pathname + window.location.search);
@@ -17,6 +18,7 @@ export default function MyApp(props) {
   const [value, setValue] = useState(0);
 
   useEffect(() => {
+    Fonts();
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles) {

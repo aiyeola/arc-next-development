@@ -1,7 +1,4 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import 'fontsource-pacifico';
-import 'fontsource-raleway';
-import 'fontsource-roboto';
 
 const arcBlue = '#0B72B9';
 const arcOrange = '#FFBA60';

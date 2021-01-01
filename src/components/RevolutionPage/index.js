@@ -363,6 +363,7 @@ function Revolution({ setValue }) {
           direction={matchesMD ? 'column' : 'row'}
           className={classes.rowContainer}
           style={{ backgroundColor: section.backgroundColor, height: '90em' }}
+          key={`${section}`}
         >
           <Grid
             item
